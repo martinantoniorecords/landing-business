@@ -1,4 +1,5 @@
-﻿// ChatBox.tsx
+﻿/* eslint-disable unicode-bom */
+// ChatBox.tsx
 import React, { useState } from "react";
 import { supabase } from "./supabaseClient";
 import { sendToTelegram } from "./sendToTelegram";
