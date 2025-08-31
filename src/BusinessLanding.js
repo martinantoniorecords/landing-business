@@ -66,8 +66,8 @@ const BusinessLanding = () => {
 
       <h2>Примери от реални проекти:</h2>
       <div className="projects">
-        <img src="example1.png" alt="Примерен сайт 1" />
-        <img src="example2.png" alt="Примерен сайт 2" />
+        <img src="/example1.png" alt="Примерен сайт 1" />
+        <img src="/example2.png" alt="Примерен сайт 2" />
       </div>
 
       <h2>Отзиви:</h2>
