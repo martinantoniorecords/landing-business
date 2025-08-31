@@ -46,7 +46,7 @@ const BusinessLanding = () => {
     <div className="container">
       <h1>Имате бизнес, но още нямате сайт?</h1>
       <p>
-        <strong>Получете модерен уебсайт до 48 часа – от 350 лв.</strong>
+        <strong>Получете модерен уебсайт до 3 дни – от 350 лв.</strong>
       </p>
 
       <div className="cta">
