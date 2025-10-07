@@ -82,7 +82,7 @@ const BusinessLanding = () => {
         <li>SEO оптимизация, SSL сертификат, обучение за управление на магазина</li>
       </ul>
 
-      <h2 id="contact">Свържете се с мен:</h2>
+      <h2 id="contact">Свържете се с мен: тел. 0882 957008</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
