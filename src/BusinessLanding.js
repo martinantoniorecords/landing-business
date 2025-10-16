@@ -83,33 +83,7 @@ const BusinessLanding = () => {
       </ul>
 
       <h2 id="contact">Свържете се с мен: тел. 0882 957008</h2>
-      /* <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Вашето име"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Имейл за връзка"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="create_website"
-          placeholder="Какъв сайт ви трябва?"
-          value={formData.create_website}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <button type="submit">Изпрати запитване</button>
-        <p style={{ marginTop: "10px" }}>{status}</p>
-      </form> */
+  
     </div>
   );
 };
