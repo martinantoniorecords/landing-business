@@ -83,7 +83,7 @@ const BusinessLanding = () => {
       </ul>
 
       <h2 id="contact">Свържете се с мен: тел. 0882 957008</h2>
-      <form className="contact-form" onSubmit={handleSubmit}>
+      /* <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -109,7 +109,7 @@ const BusinessLanding = () => {
         ></textarea>
         <button type="submit">Изпрати запитване</button>
         <p style={{ marginTop: "10px" }}>{status}</p>
-      </form>
+      </form> */
     </div>
   );
 };
