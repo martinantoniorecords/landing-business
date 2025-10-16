@@ -1,52 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./BusinessLanding.css";
 
 const BusinessLanding = () => {
-  const [status, setStatus] = useState("");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    create_website: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Изпращане...");
-
-    const response = await fetch(
-      "https://sneynasuzdckcnimehdd.supabase.co/rest/v1/contact_messages",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNuZXluYXN1emRja2NuaW1laGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU2NjIxMzksImV4cCI6MjA2MTIzODEzOX0.4JZ_zHLCV2fJs872P5PB-9h0ZGFgLsXdksIajkrPrKU",
-          Authorization:
-            "Bearer YOUR_SUPABASE_KEY",
-          Prefer: "return=minimal",
-        },
-        body: JSON.stringify(formData),
-      }
-    );
-
-    if (!response.ok) {
-      console.error("Error:", response.statusText);
-      setStatus("⚠️ Възникна грешка. Опитайте отново.");
-    } else {
-      setStatus("✅ Съобщението е изпратено успешно!");
-      setFormData({ name: "", email: "", create_website: "" });
-    }
-  };
-
   return (
     <div className="container">
       <h1>Имате бизнес, но нямате сайт?</h1>
       <p>
-        <strong>Получете професионален уебсайт бързо и лесно – започвайки от 150 лв.</strong>
+        <strong>
+          Получете професионален уебсайт бързо и лесно – започвайки от 150 лв.
+        </strong>
       </p>
 
       <div className="cta">
@@ -83,7 +45,8 @@ const BusinessLanding = () => {
       </ul>
 
       <h2 id="contact">Свържете се с мен: тел. 0882 957008</h2>
-  
+
+      {/* Form temporarily removed to avoid ESLint/build errors */}
     </div>
   );
 };
