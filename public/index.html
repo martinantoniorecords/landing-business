@@ -1,54 +1,68 @@
 ﻿<!DOCTYPE html>
 <html lang="bg">
   <head>
-  <!-- Event snippet for Purchase conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-16543335910/WMNICJO4z4AbEOaLvdA9',
-      'value': 1.0,
-      'currency': 'BGN',
-      'transaction_id': '',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16543335910"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-16543335910');
-</script>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
-    <!-- Updated description for SEO -->
-    <meta
-      name="description"
-      content="Професионална изработка на уебсайтове за бизнеси – блогове, информационни сайтове и онлайн магазини от 150 лв."
-    />
-
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- Custom title -->
-    <title>Бизнес уебсайт – Изработка и услуги</title>
+    <!-- SEO meta -->
+    <meta
+      name="description"
+      content="AI Ebook + пакет готови AI prompts за вашето обучение и проекти. Цената на пакета е BGN 30."
+    />
+    <meta property="og:title" content="AI Ebook + Prompt Pack" />
+    <meta
+      property="og:description"
+      content="Научете как да използвате AI с готови примери и prompts. Купете веднага!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:image" content="https://example.com/preview-image.png" />
+
+    <title>AI Ebook + Prompt Pack – Купи сега</title>
+
+    <!-- Google Ads conversion -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url != "undefined") {
+            window.location = url;
+          }
+        };
+        gtag("event", "conversion", {
+          send_to: "AW-16543335910/WMNICJO4z4AbEOaLvdA9",
+          value: 1.0,
+          currency: "BGN",
+          transaction_id: "",
+          event_callback: callback,
+        });
+        return false;
+      }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16543335910"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16543335910");
+    </script>
   </head>
   <body>
     <noscript>Трябва да активирате JavaScript, за да работи приложението.</noscript>
+
     <div id="root"></div>
+
+    <!-- Optional: fallback message -->
+    <div style="text-align:center; margin-top:2rem;">
+      <p>Сайтът работи най-добре с активиран JavaScript.</p>
+    </div>
   </body>
 </html>

@@ -1,0 +1,54 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #0077cc;
+  text-align: center;
+}
+
+header p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.offer, .cta, .bonus, .testimonials {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.offer ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.cta .btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #0077cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.cta .btn:hover {
+  background-color: #005fa3;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 30px;
+}
