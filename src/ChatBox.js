@@ -76,7 +76,7 @@ export default function ChatBox() {
       console.error(err);
       setChatHistory((prev) => [
         ...prev,
-        { sender: "assistant", text: "Възникна грешка, опитайте по-късно." },
+        { sender: "assistant", text: "Възникна грешка, опитайте по-късно" },
       ]);
     } finally {
       setLoading(false);
