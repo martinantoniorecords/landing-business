@@ -21,8 +21,8 @@ const AILanding = () => {
       <section className="cta">
         <h2>Вземете своя пакет сега!</h2>
         <p><strong>Цена: BGN 30</strong></p>
-        <a href="      'https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&components=hosted-buttons&disable-funding=venmo&currency=EUR';
-" className="btn">Купи сега</a>
+        <a href='https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&components=hosted-buttons&disable-funding=venmo&currency=EUR';
+className="btn">Купи сега</a>
       </section>
 
       <section className="bonus">
