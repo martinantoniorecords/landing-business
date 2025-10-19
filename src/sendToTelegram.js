@@ -1,4 +1,4 @@
-// sendToTelegram.ts
+﻿// sendToTelegram.ts
 export async function sendToTelegram(message: string) {
   const BOT_TOKEN = "7728449437:AAHLncszp2Pk6EZl9Fi4sWxTBn7cOHzsqZ8";
   const CHAT_ID = "6937760786";
