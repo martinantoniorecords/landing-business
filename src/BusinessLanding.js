@@ -1,46 +1,79 @@
-﻿import React from "react";
-import "./AILanding.css";
+﻿import React, { useEffect, useRef } from "react";
 
-const AILanding = () => {
+const BusinessLanding = () => {
+  const paypalRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&currency=EUR";
+    script.addEventListener("load", () => {
+      if (window.paypal) {
+        window.paypal
+          .Buttons({
+            style: {
+              layout: "vertical",
+              color: "blue",
+              shape: "rect",
+              label: "paypal",
+            },
+            createOrder: (data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: { value: "30.00" },
+                  },
+                ],
+              });
+            },
+            onApprove: (data, actions) => {
+              return actions.order.capture().then((details) => {
+                alert(
+                  `Transaction completed by ${details.payer.name.given_name}!`
+                );
+              });
+            },
+            onError: (err) => {
+              console.error("PayPal Buttons error:", err);
+            },
+          })
+          .render(paypalRef.current);
+      }
+    });
+    document.body.appendChild(script);
+
+    return () => {
+      if (script) document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="container">
-      <header>
-        <h1>Изкуствен интелект за начинаещи + готови AI prompts</h1>
-        <p>Научете как да използвате AI и получете готови команди, които работят веднага!</p>
-      </header>
+    <section style={{ maxWidth: "600px", margin: "2rem auto", padding: "1rem" }}>
+      <h1>AI Услуги</h1>
+      <p>
+        Изкуствен интелект за начинаещи + готови AI prompts. Научете как да
+        използвате AI и получете готови команди, които работят веднага!
+      </p>
 
-      <section className="offer">
-        <h2>Какво ще получите:</h2>
-        <ul>
-          <li><strong>Ebook:</strong> Основи на AI, топ 10 инструмента, практични примери за България</li>
-          <li><strong>Prompt Pack:</strong> 10–20 готови ChatGPT / AI команди за маркетинг, социални мрежи, имейли и съдържание</li>
-          <li>Лесно сваляне веднага след покупка</li>
-        </ul>
-      </section>
+      <h2>Какво ще получите:</h2>
+      <ul>
+        <li>
+          <strong>Ebook:</strong> Основи на AI, топ 10 инструмента, практически
+          примери за България
+        </li>
+        <li>
+          <strong>Prompt Pack:</strong> 10–20 готови ChatGPT / AI команди за
+          маркетинг, социални мрежи, имейли и съдържание
+        </li>
+        <li>Лесно сваляне веднага след покупка</li>
+        <li>Цена: BGN 30</li>
+      </ul>
 
-      <section className="cta">
-        <h2>Вземете своя пакет сега!</h2>
-        <p><strong>Цена: BGN 30</strong></p>
-        <a href='https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&components=hosted-buttons&disable-funding=venmo&currency=EUR';
-className="btn">Купи сега</a>
-      </section>
-
-      <section className="bonus">
-        <h3>Бонус:</h3>
-        <p>Абонирайте се за нашия бюлетин и получете 5 допълнителни AI prompts безплатно!</p>
-      </section>
-
-      <section className="testimonials">
-        <h2>Какво казват хората:</h2>
-        <p>„Прекрасен ресурс! Научих бързо как да използвам AI за бизнес задачите си.“ – Иван П.</p>
-        <p>„Prompt pack-ът ми спести часове работа!“ – Мария С.</p>
-      </section>
-
-      <footer>
-        <p>© 2025 AI Bulgaria | Всички права запазени</p>
-      </footer>
-    </div>
+      <div style={{ marginTop: "2rem" }}>
+        <div ref={paypalRef} />
+      </div>
+    </section>
   );
 };
 
-export default AILanding;
+export default BusinessLanding;
