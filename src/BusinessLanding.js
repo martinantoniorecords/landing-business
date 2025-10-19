@@ -4,51 +4,54 @@ const BusinessLanding = () => {
   const paypalRef = useRef(null);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&currency=EUR";
-    script.addEventListener("load", () => {
-      if (window.paypal) {
-        window.paypal
-          .Buttons({
-            style: {
-              layout: "vertical",
-              color: "blue",
-              shape: "rect",
-              label: "paypal",
-            },
-            createOrder: (data, actions) => {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: { value: "30.00" },
-                  },
-                ],
-              });
-            },
-            onApprove: (data, actions) => {
-              return actions.order.capture().then((details) => {
-                alert(
-                  `Transaction completed by ${details.payer.name.given_name}!`
-                );
-              });
-            },
-            onError: (err) => {
-              console.error("PayPal Buttons error:", err);
-            },
-          })
-          .render(paypalRef.current);
-      }
-    });
-    document.body.appendChild(script);
+    const addPaypalScript = () => {
+      if (document.getElementById("paypal-sdk")) return;
 
-    return () => {
-      if (script) document.body.removeChild(script);
+      const script = document.createElement("script");
+      script.id = "paypal-sdk";
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=BAAVYiC-srs0QQ7eQzFSPWsDfdJxKxthYO920jVotBhncf-yHaoRwrA_AOdHpsvzPCvCzWsQxa6UzGm5gA&currency=EUR";
+      script.async = true;
+      script.onload = () => {
+        if (window.paypal && paypalRef.current) {
+          window.paypal
+            .Buttons({
+              style: {
+                layout: "vertical",
+                color: "blue",
+                shape: "rect",
+                label: "paypal",
+              },
+              createOrder: (data, actions) =>
+                actions.order.create({
+                  purchase_units: [{ amount: { value: "30.00" } }],
+                }),
+              onApprove: (data, actions) =>
+                actions.order.capture().then((details) =>
+                  alert(
+                    `Transaction completed by ${details.payer.name.given_name}!`
+                  )
+                ),
+              onError: (err) => console.error("PayPal Buttons error:", err),
+            })
+            .render(paypalRef.current);
+        }
+      };
+      document.body.appendChild(script);
     };
+
+    addPaypalScript();
   }, []);
 
   return (
-    <section style={{ maxWidth: "600px", margin: "2rem auto", padding: "1rem" }}>
+    <section
+      style={{
+        maxWidth: "600px",
+        margin: "2rem auto",
+        padding: "1rem",
+        textAlign: "center",
+      }}
+    >
       <h1>AI Услуги</h1>
       <p>
         Изкуствен интелект за начинаещи + готови AI prompts. Научете как да
@@ -56,7 +59,7 @@ const BusinessLanding = () => {
       </p>
 
       <h2>Какво ще получите:</h2>
-      <ul>
+      <ul style={{ textAlign: "left" }}>
         <li>
           <strong>Ebook:</strong> Основи на AI, топ 10 инструмента, практически
           примери за България
@@ -70,7 +73,7 @@ const BusinessLanding = () => {
       </ul>
 
       <div style={{ marginTop: "2rem" }}>
-        <div ref={paypalRef} />
+        <div ref={paypalRef}></div>
       </div>
     </section>
   );
