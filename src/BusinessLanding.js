@@ -31,7 +31,7 @@ export default function AiPayment() {
         flexDirection: "column",
         backgroundColor: "#fff",
         padding: "2rem",
-        paddingTop: "1rem", // space from top
+        paddingTop: "1rem",
       }}
     >
       <div
@@ -52,7 +52,7 @@ export default function AiPayment() {
             marginBottom: "1rem",
           }}
         >
-          AI Услуги
+          AI Чатбот Пакет
         </h2>
         <p
           style={{
@@ -61,8 +61,8 @@ export default function AiPayment() {
             marginBottom: "2rem",
           }}
         >
-          Изкуствен интелект за начинаещи + готови AI prompts.  
-          Научете как да използвате AI и получете готови команди, които работят веднага!
+          Стартирай AI чатбот за своя бизнес или социални мрежи.  
+          Получи готови команди и автоматизирай комуникацията с клиенти веднага!
         </p>
 
         <h3 style={{ fontWeight: "600", marginBottom: "1rem" }}>
@@ -80,13 +80,17 @@ export default function AiPayment() {
           }}
         >
           <li>
-            <strong>Ebook:</strong> Основи на AI, топ 10 инструмента, практически примери за България
+            Готови AI скриптове за чатботове
           </li>
           <li>
-            <strong>Prompt Pack:</strong> 10–20 готови ChatGPT / AI команди за маркетинг, социални мрежи, имейли и съдържание
+            Автоматизация на въпроси и отговори за клиенти
           </li>
-          <li>Лесно сваляне веднага след покупка</li>
-          <li>Цена: BGN 30</li>
+          <li>
+            Подходящ за социални мрежи, сайтове и имейли
+          </li>
+          <li>
+            Цена: €15
+          </li>
         </ul>
 
         <div
@@ -108,7 +112,7 @@ export default function AiPayment() {
               marginRight: "auto",
             }}
           >
-            Пакет електронна книга плюс Prompt pack
+            Стартирай своя AI чатбот
           </h3>
 
           <p
@@ -134,8 +138,44 @@ export default function AiPayment() {
           ></div>
 
           {/* Chatbox immediately under PayPal */}
-         
-
+          <div
+            style={{
+              marginTop: "1rem",
+              textAlign: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              }}
+            >
+              <textarea
+                placeholder="Напиши въпроса си за AI чатбот..."
+                style={{
+                  padding: "0.5rem",
+                  borderRadius: "5px",
+                  border: "1px solid #ccc",
+                  width: "100%",
+                  minHeight: "80px",
+                  resize: "vertical",
+                }}
+              ></textarea>
+              <button
+                style={{
+                  padding: "0.6rem 1rem",
+                  backgroundColor: "#0070ba",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                Изпрати
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
