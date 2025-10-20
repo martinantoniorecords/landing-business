@@ -138,44 +138,7 @@ export default function AiPayment() {
           ></div>
 
           {/* Chatbox immediately under PayPal */}
-          <div
-            style={{
-              marginTop: "1rem",
-              textAlign: "center",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.5rem",
-              }}
-            >
-              <textarea
-                placeholder="Напиши въпроса си за AI чатбот..."
-                style={{
-                  padding: "0.5rem",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                  width: "100%",
-                  minHeight: "80px",
-                  resize: "vertical",
-                }}
-              ></textarea>
-              <button
-                style={{
-                  padding: "0.6rem 1rem",
-                  backgroundColor: "#0070ba",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                }}
-              >
-                Изпрати
-              </button>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
