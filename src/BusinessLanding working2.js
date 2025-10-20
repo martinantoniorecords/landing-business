@@ -13,7 +13,7 @@ export default function AiPayment() {
         if (window.paypal) {
           window.paypal
             .HostedButtons({
-              hostedButtonId: "ZM7D8VVQS7NGE",
+              hostedButtonId: "ZM7D8VVQS7NGE", // your PayPal hosted button ID
             })
             .render("#paypal-container");
         }
@@ -26,12 +26,12 @@ export default function AiPayment() {
     <div
       style={{
         display: "flex",
-        justifyContent: "flex-start", // content starts at top
+        justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        minHeight: "100vh",
         backgroundColor: "#fff",
         padding: "2rem",
-        paddingTop: "1rem", // space from top
       }}
     >
       <div
@@ -121,21 +121,29 @@ export default function AiPayment() {
             €15.00 EUR
           </p>
 
-          {/* PayPal button */}
+          {/* ✅ Fixed PayPal container */}
           <div
             id="paypal-container"
             style={{
-              display: "block",
-              maxWidth: "400px",
+              display: "block",       // allow PayPal iframe to size naturally
+              maxWidth: "400px",      // optional limit
               width: "100%",
-              margin: "0 auto",
-              textAlign: "center",
+              margin: "0 auto",       // center horizontally
+              textAlign: "center",    // center button inside container
             }}
           ></div>
+        </div>
 
-          {/* Chatbox immediately under PayPal */}
-         
-
+        <div
+          style={{
+            marginTop: "3rem",
+            borderTop: "1px solid #eee",
+            paddingTop: "1rem",
+            fontSize: "0.9rem",
+            color: "#777",
+          }}
+        >
+          <p>📩 Имате въпрос? Попитайте ни чрез формата по-долу.</p>
         </div>
       </div>
     </div>

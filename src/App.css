@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+h3, p, div, span {
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
