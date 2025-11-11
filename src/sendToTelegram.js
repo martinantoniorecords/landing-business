@@ -15,3 +15,4 @@ export async function sendToTelegram(message: string) {
   });
 }
 // JavaScript source code
+

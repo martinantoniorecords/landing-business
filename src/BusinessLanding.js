@@ -134,3 +134,4 @@ export default function AiPayment() {
     </div>
   );
 }
+
