@@ -1,4 +1,13 @@
 ﻿import React, { useEffect } from "react";
+<div id="my-chatbox"></div>
+<script src="https://my-vercel-api-ecru.vercel.app/chatbox.bundle.js"></script>
+<script>
+  Chatbox.init({
+    elementId: 'my-chatbox',
+    backendUrl: 'https://my-vercel-api-ecru.vercel.app/api/chat',
+    clientPrompt: 'You are the support bot for ACME Corp. Answer questions about products and shipping in a friendly tone.'
+  });
+</script>
 
 export default function AiPayment() {
   useEffect(() => {
