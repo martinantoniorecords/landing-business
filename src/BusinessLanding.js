@@ -1,17 +1,8 @@
 ﻿import React, { useEffect } from "react";
-<div id="my-chatbox"></div>
-<script src="https://my-vercel-api-ecru.vercel.app/chatbox.bundle.js"></script>
-<script>
-  Chatbox.init({
-    elementId: 'my-chatbox',
-    backendUrl: 'https://my-vercel-api-ecru.vercel.app/api/chat',
-    clientPrompt: 'You are the support bot for ACME Corp. Answer questions about products and shipping in a friendly tone.'
-  });
-</script>
 
 export default function AiPayment() {
   useEffect(() => {
-    // Load PayPal SDK once
+    // ---- Load PayPal SDK ----
     if (!document.getElementById("paypal-sdk")) {
       const script = document.createElement("script");
       script.id = "paypal-sdk";
@@ -28,6 +19,27 @@ export default function AiPayment() {
         }
       };
       document.head.appendChild(script);
+    }
+
+    // ---- Load Chatbox Script ----
+    if (!document.getElementById("chatbox-sdk")) {
+      const chatScript = document.createElement("script");
+      chatScript.id = "chatbox-sdk";
+      chatScript.src = "https://my-vercel-api-ecru.vercel.app/chatbox.bundle.js";
+      chatScript.async = true;
+      chatScript.onload = () => {
+        if (window.Chatbox) {
+          window.Chatbox.init({
+            elementId: "my-chatbox",
+            backendUrl: "https://my-vercel-api-ecru.vercel.app/api/chat",
+            clientKey: null,
+            clientId: "client1-siteA",
+            clientPrompt:
+              "You are the support bot for ACME Corp. Answer questions about products and shipping in a friendly tone.",
+          });
+        }
+      };
+      document.body.appendChild(chatScript);
     }
   }, []);
 
@@ -54,30 +66,16 @@ export default function AiPayment() {
           boxShadow: "0 0 10px rgba(0,0,0,0.05)",
         }}
       >
-        <h2
-          style={{
-            fontSize: "1.8rem",
-            fontWeight: "700",
-            marginBottom: "1rem",
-          }}
-        >
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "700", marginBottom: "1rem" }}>
           Готов AI Чатбот 💬
         </h2>
-        <p
-          style={{
-            fontSize: "1rem",
-            color: "#444",
-            marginBottom: "1rem",
-          }}
-        >
-          💬 Вземи своя AI чатбот за €15!  
-          Стартирай автоматични разговори с клиенти за минути – без кодиране.  
-          Получаваш напълно готов бот + инструкции за веднага използване! 🛒 Купи сега
+        <p style={{ fontSize: "1rem", color: "#444", marginBottom: "1rem" }}>
+          💬 Вземи своя AI чатбот за €15! Стартирай автоматични разговори с клиенти
+          за минути – без кодиране. Получаваш напълно готов бот + инструкции за
+          веднага използване! 🛒 Купи сега
         </p>
 
-        <h3 style={{ fontWeight: "600", marginBottom: "1rem" }}>
-          Какво включва пакетът:
-        </h3>
+        <h3 style={{ fontWeight: "600", marginBottom: "1rem" }}>Какво включва пакетът:</h3>
         <ul
           style={{
             textAlign: "left",
@@ -95,39 +93,24 @@ export default function AiPayment() {
           <li>Цена: €15 (около 30 лв)</li>
         </ul>
 
-        <div
-          style={{
-            marginTop: "2rem",
-            textAlign: "center",
-          }}
-        >
+        <div style={{ marginTop: "2rem", textAlign: "center" }}>
           <h3
             style={{
               fontSize: "1.2rem",
               fontWeight: "600",
               marginBottom: "0.5rem",
               maxWidth: "400px",
-              wordBreak: "break-word",
-              whiteSpace: "normal",
               lineHeight: "1.4",
-              marginLeft: "auto",
-              marginRight: "auto",
+              margin: "0 auto",
             }}
           >
             Купи готовия чатбот и стартирай веднага 🚀
           </h3>
 
-          <p
-            style={{
-              fontWeight: "bold",
-              fontSize: "1.1rem",
-              marginBottom: "1rem",
-            }}
-          >
+          <p style={{ fontWeight: "bold", fontSize: "1.1rem", marginBottom: "1rem" }}>
             €15.00 EUR
           </p>
 
-          {/* PayPal button */}
           <div
             id="paypal-container"
             style={{
@@ -140,7 +123,12 @@ export default function AiPayment() {
           ></div>
         </div>
       </div>
+
+      {/* Chatbox container */}
+      <div
+        id="my-chatbox"
+        style={{ marginTop: "2rem", width: "100%", maxWidth: "600px" }}
+      ></div>
     </div>
   );
 }
-
