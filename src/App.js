@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import BusinessLanding from './BusinessLanding';
 import ChatBox from './ChatBox';
 
